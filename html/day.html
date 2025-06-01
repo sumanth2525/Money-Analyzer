@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <section class="panel">
+    <h2>Day Spend</h2>
+    <form method="post" class="form">
+      <label>Date
+        <input type="date" name="date" value="{{ today }}" required />
+      </label>
+      <label>Total Amount&nbsp;($)
+        <input type="number" name="total_amount" step="0.01" placeholder="0.00" required />
+      </label>
+      <button type="submit" class="btn primary wide">Submit</button>
+    </form>
+
+    <table class="table">
+      <tr>
+        <th>ID</th><th>Date</th><th>Total ($)</th>
+      </tr>
+      {% for row in rows %}
+      <tr>
+        <td>{{ row['id'] }}</td>
+        <td>{{ row['date'] }}</td>
+        <td>{{ "%.2f"|format(row['total_amount']) }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </section>
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <section class="panel">
+    <h2>Split Expense</h2>
+    <form method="post" class="form" id="splitForm">
+      <label>Store Name
+        <input type="text" name="store" placeholder="Store or Merchant" required />
+      </label>
+      <label>Amount&nbsp;($)
+        <input type="number" name="amount" step="0.01" placeholder="0.00" required />
+      </label>
+      <label>Date
+        <input type="date" name="date" value="{{ today }}" required />
+      </label>
+      <label>Category
+        <select name="category">
+          <option>Food</option>
+          <option>Gas</option>
+          <option>EMI</option>
+        </select>
+      </label>
+
+      <div id="namesContainer">
+        <label>Split With
+          <input type="text" name="split_with" placeholder="Name" required />
+        </label>
+      </div>
+      <button type="button" id="addNameBtn" class="btn add">+ Add Person</button>
+      <button type="submit" class="btn primary wide">Submit</button>
+    </form>
+
+    <table class="table">
+      <tr>
+        <th>ID</th><th>Store</th><th>Amount ($)</th><th>Date</th><th>Category</th><th>People</th>
+      </tr>
+      {% for row in rows %}
+      <tr>
+        <td>{{ row['id'] }}</td>
+        <td>{{ row['store'] }}</td>
+        <td>{{ "%.2f"|format(row['amount']) }}</td>
+        <td>{{ row['date'] }}</td>
+        <td>{{ row['category'] }}</td>
+        <td>{{ row['people'] }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </section>
+{% endblock %}
