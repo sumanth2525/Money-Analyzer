@@ -1,0 +1,105 @@
+/* ─── ROOT / RESET ─── */
+:root{
+  --clr-primary:#0f172a;
+  --clr-secondary:#6366f1;
+  --clr-bg-start:#63e0d2;
+  --clr-bg-end:#f3d0d1;
+  --radius:1.4rem;
+  --shadow:0 8px 16px rgba(0,0,0,.06);
+}
+
+*,*::before,*::after{box-sizing:border-box; margin:0; padding:0;}
+body{
+  font-family:'Poppins',system-ui,Arial,sans-serif;
+  line-height:1.5;
+  color:var(--clr-primary);
+  background:#fafafa;
+}
+
+/* ─── HERO ─── */
+.hero{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  padding:2rem 1rem;
+  background:linear-gradient(135deg,var(--clr-bg-start),var(--clr-bg-end));
+}
+.hero h1{
+  font-size:2.8rem;
+  font-weight:700;
+  margin-bottom:.3rem;
+}
+.hero h1 span{color:var(--clr-secondary);}
+.nav{
+  margin-top:1rem;
+}
+.nav a{
+  margin:0 1rem;
+  padding:.5rem 1rem;
+  text-decoration:none;
+  color:#fff;
+  background:var(--clr-secondary);
+  border-radius:2rem;
+  transition:opacity .2s ease;
+}
+.nav a:hover{opacity:.8;}
+
+/* ─── PAGE CONTENT ─── */
+.content{max-width:800px; margin:2rem auto; padding:0 1rem;}
+
+/* ─── PANELS ─── */
+.panel{
+  background:#fff;
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:1.5rem;
+  margin-bottom:2rem;
+}
+
+/* ─── FORM ─── */
+.form{
+  display:grid;
+  gap:1rem;
+  margin-bottom:1.5rem;
+}
+.form label{
+  display:flex;
+  flex-direction:column;
+  font-size:.9rem;
+  font-weight:500;
+}
+input, select{ 
+  padding:.7rem 1rem;
+  border:1px solid #dcdcdc;
+  border-radius:.6rem;
+  font-size:1rem;
+}
+input:focus, select:focus{ outline:none; border-color:var(--clr-secondary); }
+
+/* ─── BUTTONS ─── */
+.btn{
+  padding:.75rem 1.5rem;
+  border:none;
+  border-radius:2rem;
+  cursor:pointer;
+  font-weight:600;
+  background:var(--clr-secondary);
+  color:#fff;
+  transition:opacity .2s ease;
+}
+.btn:hover{opacity:.8;}
+.wide{width:100%;}
+
+/* ─── TABLES ─── */
+.table{
+  width:100%;
+  border-collapse:collapse;
+  font-size:.9rem;
+}
+.table th, .table td{
+  padding:.6rem .8rem;
+  border-bottom:1px solid #f1f1f1;
+  text-align:left;
+}
+.table tr:nth-child(even){ background:#f9f9f9; }
